@@ -11,6 +11,7 @@ import org.eclipse.core.commands.Parameterization;
 import org.eclipse.core.commands.ParameterizedCommand;
 import org.eclipse.core.commands.common.NotDefinedException;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.gef.EditPart;
@@ -30,35 +31,31 @@ public class OpenCommandHandler extends AbstractHandler {
 		if(selection instanceof IStructuredSelection){
 			IStructuredSelection structuredSelection = (IStructuredSelection) selection;
 			Object firstElement = structuredSelection.getFirstElement();
-			if(firstElement instanceof EditPart){
-				Object model = ((EditPart) firstElement).getModel();
-				if(model instanceof View){
-					try {
-						View view = (View) model;
-						Resource resource = view.eResource();
-						//					EObject element = view.getElement();
-						ICommandService commandService = (ICommandService) HandlerUtil.getActiveWorkbenchWindow(event).getService(ICommandService.class);
-						IHandlerService handlerService = (IHandlerService) HandlerUtil.getActiveWorkbenchWindow(event).getService(IHandlerService.class);
-						Command command = commandService.getCommand(IOpenEditorCommand.COMMAND_ID);
-						IParameter resourceParameter = command.getParameter(IOpenEditorCommand.PARAM_RESOURCE);
-						IParameter elementParameter = command.getParameter(IOpenEditorCommand.PARAM_ELEMENT);
-						URI uri = resource.getURI();
-						Parameterization resourceParam = new Parameterization(resourceParameter, uri.toPlatformString(true));
-						URI elementUri = EcoreUtil.getURI(view);
-						Parameterization elementParam = new Parameterization(elementParameter, elementUri.toString());
-						ParameterizedCommand parameterCommand = new ParameterizedCommand(command, new Parameterization[]{resourceParam, elementParam});
-						handlerService.executeCommand(parameterCommand, null);
-					} catch (NotDefinedException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					} catch (NotEnabledException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					} catch (NotHandledException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-
+			if(firstElement instanceof EObject){
+				try {
+					EObject element = (EObject) firstElement;
+					Resource resource = element.eResource();
+					//					EObject element = view.getElement();
+					ICommandService commandService = (ICommandService) HandlerUtil.getActiveWorkbenchWindow(event).getService(ICommandService.class);
+					IHandlerService handlerService = (IHandlerService) HandlerUtil.getActiveWorkbenchWindow(event).getService(IHandlerService.class);
+					Command command = commandService.getCommand(IOpenEditorCommand.COMMAND_ID);
+					IParameter resourceParameter = command.getParameter(IOpenEditorCommand.PARAM_RESOURCE);
+					IParameter elementParameter = command.getParameter(IOpenEditorCommand.PARAM_ELEMENT);
+					URI uri = resource.getURI();
+					Parameterization resourceParam = new Parameterization(resourceParameter, uri.toPlatformString(true));
+					URI elementUri = EcoreUtil.getURI(element);
+					Parameterization elementParam = new Parameterization(elementParameter, elementUri.toString());
+					ParameterizedCommand parameterCommand = new ParameterizedCommand(command, new Parameterization[]{resourceParam, elementParam});
+					handlerService.executeCommand(parameterCommand, null);
+				} catch (NotDefinedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (NotEnabledException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (NotHandledException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
 				}
 			}
 		}

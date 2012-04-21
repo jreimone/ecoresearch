@@ -1,5 +1,6 @@
 package org.hackathon.ecoresearch.handlers;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -13,11 +14,14 @@ import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.presentation.EcoreEditor;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.ecoretools.diagram.part.EcoreDiagramEditor;
 import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.View;
-import org.eclipse.ui.IEditorDescriptor;
+import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.PartInitException;
@@ -28,7 +32,7 @@ import org.hackathon.ecoresearch.commands.IOpenEditorCommand;
 public class OpenEditorHandler extends AbstractHandler {
 
 	private Map<EObject, View> localindex = new HashMap<EObject, View>();
-	
+
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
 		Object resourceObject = event.getObjectParameterForExecution(IOpenEditorCommand.PARAM_RESOURCE);
@@ -38,44 +42,34 @@ public class OpenEditorHandler extends AbstractHandler {
 			EObject element = (EObject) elementObject;
 			URI uri = resource.getURI();
 			if(uri.isFile()){
-				String path = uri.path();
-				IEditorDescriptor defaultEditor = PlatformUI.getWorkbench().getEditorRegistry().getDefaultEditor(path);
-//				String id = defaultEditor.getId();
-				if(element instanceof View){
-					// GMF Diagram Editor
-					View view = (View) element;
-					Diagram diagram = (Diagram) EcoreUtil.getRootContainer(view, true);
-//					DiagramEditorInput input = new DiagramEditorInput(diagram);
-					try {
-						IWorkbenchPage page = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage();
-						IPath workspacePath = new Path(path);
-						IFile editorFile = ResourcesPlugin.getWorkspace().getRoot().getFile(workspacePath);
-						IEditorPart openEditor = IDE.openEditor(page, editorFile);
-//						IEditorPart editor = IDE.openEditor(page, input, id, true);
-//						IEditorPart editor = page.openEditor(input, id, true);
-						System.out.println(openEditor);
-					} catch (PartInitException e) {
-						e.printStackTrace();
+				try {
+					String path = uri.path();
+					//					IEditorDescriptor defaultEditor = PlatformUI.getWorkbench().getEditorRegistry().getDefaultEditor(path);
+					//				String id = defaultEditor.getId();
+					IWorkbenchPage page = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage();
+					IPath workspacePath = new Path(path);
+					IFile editorFile = ResourcesPlugin.getWorkspace().getRoot().getFile(workspacePath);
+					IEditorPart openEditor = IDE.openEditor(page, editorFile);
+					if(openEditor instanceof EcoreDiagramEditor){
+						// GMF Diagram Editor
+						EcoreDiagramEditor diagramEditor = (EcoreDiagramEditor) openEditor;
+//						diagramEditor.getDiagramGraphicalViewer().
+						View view = (View) element;	
+						Diagram diagram = (Diagram) EcoreUtil.getRootContainer(view, true);
+						
+					} else if (openEditor instanceof EcoreEditor){
+						// Ecore Tree Editor
+						EcoreEditor treeEditor = (EcoreEditor) openEditor;
+						List<EObject> selectedElement = new ArrayList<EObject>();
+						selectedElement.add(element);
+						IStructuredSelection selection = new StructuredSelection(selectedElement);
+						treeEditor.setSelection(selection);
 					}
-				} else if(element instanceof EObject){
-					// Ecore Tree Editor
-					
+				} catch (PartInitException e) {
+					e.printStackTrace();
 				}
-//				PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().openEditor(input, editorId, activate)
-//				PlatformUI.getWorkbench().getEditorRegistry().
-				
-//				IEditorPart editor = HandlerUtil.getActiveWorkbenchWindow(event).getActivePage().getActiveEditor();
-//				Object adapter = editor.getAdapter(EcoreDiagramEditor.class);
-//				if(adapter != null){
-//					EcoreDiagramEditor diagramEditor = (EcoreDiagramEditor) adapter;
-//					Diagram diagram = diagramEditor.getDiagram();
-//					EObject element = diagram.getElement();
-//					EObject model = EcoreUtil.getRootContainer(element, true);
-//					createLocalIndex(diagram);
-//				}
-				
 			}
-			
+
 		}
 		return null;
 	}

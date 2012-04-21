@@ -12,6 +12,8 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.emf.ecoretools.diagram,
  org.eclipse.gmf.runtime.diagram.ui.resources.editor,
  org.eclipse.gmf.runtime.diagram.ui,
- org.eclipse.ui.ide
+ org.eclipse.ui.ide,
+ org.eclipse.emf.ecore.editor
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: org.hackathon.ecoresearch.commands
