@@ -5,28 +5,59 @@
          point="org.eclipse.ui.commands">
       <command
             categoryId="org.hackathon.ecoresearch.category"
-            id="org.hackathon.ecoresearch.searchdialog"
-            name="Ecore Search Dialog">
+            id="org.hackathon.ecoresearch.opendialog"
+            name="Open editor">
+         <commandParameter
+               id="org.hackathon.ecoresearch.commands.resourceParameter"
+               name="resource"
+               optional="false"
+               typeId="org.hackathon.ecoresearch.commands.resourceType">
+         </commandParameter>
+         <commandParameter
+               id="org.hackathon.ecoresearch.commands.elementParameter"
+               name="element"
+               optional="false"
+               typeId="org.hackathon.ecoresearch.commands.elementType">
+         </commandParameter>
       </command>
       <category
             id="org.hackathon.ecoresearch.category"
             name="Ecore Search">
       </category>
+      <command
+            categoryId="org.hackathon.ecoresearch.category"
+            id="org.hackathon.ecoresearch.opencommand"
+            name="Open other command">
+      </command>
+      <commandParameterType
+            converter="org.hackathon.ecoresearch.commands.converter.ResourceConverter"
+            id="org.hackathon.ecoresearch.commands.resourceType"
+            type="org.eclipse.emf.ecore.resource.Resource">
+      </commandParameterType>
+      <commandParameterType
+            converter="org.hackathon.ecoresearch.commands.converter.EObjectConverter"
+            id="org.hackathon.ecoresearch.commands.elementType"
+            type="org.eclipse.emf.ecore.EObject">
+      </commandParameterType>
    </extension>
    <extension
          point="org.eclipse.ui.handlers">
       <handler
-            class="org.hackathon.ecoresearch.handlers.SearchDialogHandler"
-            commandId="org.hackathon.ecoresearch.searchdialog">
+            class="org.hackathon.ecoresearch.handlers.OpenEditorHandler"
+            commandId="org.hackathon.ecoresearch.opendialog">
+      </handler>
+      <handler
+            class="org.hackathon.ecoresearch.handlers.OpenCommandHandler"
+            commandId="org.hackathon.ecoresearch.opencommand">
       </handler>
    </extension>
    <extension
          point="org.eclipse.ui.bindings">
       <key
+            commandId="org.hackathon.ecoresearch.opencommand"
             contextId="org.eclipse.emf.ecoretools.diagram.ui.diagramContext"
             schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
             sequence="M1+F">
       </key>
    </extension>
-
 </plugin>
