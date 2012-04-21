@@ -22,4 +22,6 @@ package org.hackathon.ecoresearch.commands;
 public interface IOpenEditorCommand {
 
 	public static final String PARAM_RESOURCE	= "org.hackathon.ecoresearch.commands.resourceParameter";
+	public static final String PARAM_ELEMENT	= "org.hackathon.ecoresearch.commands.elementParameter";
+	public static final String COMMAND_ID		= "org.hackathon.ecoresearch.opendialog";
 }
