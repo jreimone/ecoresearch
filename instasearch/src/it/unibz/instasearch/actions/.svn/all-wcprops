@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/rosvn/instasearch/!svn/ver/98/it.unibz.instasearch/src/it/unibz/instasearch/actions
+END
+PreferencesAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/rosvn/instasearch/!svn/ver/40/it.unibz.instasearch/src/it/unibz/instasearch/actions/PreferencesAction.java
+END
+BuildIndexActionDelegate.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/rosvn/instasearch/!svn/ver/39/it.unibz.instasearch/src/it/unibz/instasearch/actions/BuildIndexActionDelegate.java
+END
+IncrementalSearchActionDelegate.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/rosvn/instasearch/!svn/ver/98/it.unibz.instasearch/src/it/unibz/instasearch/actions/IncrementalSearchActionDelegate.java
+END
+ExpandAllActionDelegate.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/rosvn/instasearch/!svn/ver/64/it.unibz.instasearch/src/it/unibz/instasearch/actions/ExpandAllActionDelegate.java
+END
+DeleteIndexActionDelegate.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/rosvn/instasearch/!svn/ver/39/it.unibz.instasearch/src/it/unibz/instasearch/actions/DeleteIndexActionDelegate.java
+END
+ShowInstaSearchAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/rosvn/instasearch/!svn/ver/64/it.unibz.instasearch/src/it/unibz/instasearch/actions/ShowInstaSearchAction.java
+END
+CollapseAllActionDelegate.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/rosvn/instasearch/!svn/ver/64/it.unibz.instasearch/src/it/unibz/instasearch/actions/CollapseAllActionDelegate.java
+END
+OpenSearchDialog.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/rosvn/instasearch/!svn/ver/83/it.unibz.instasearch/src/it/unibz/instasearch/actions/OpenSearchDialog.java
+END
+CheckUpdatesActionDelegate.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/rosvn/instasearch/!svn/ver/84/it.unibz.instasearch/src/it/unibz/instasearch/actions/CheckUpdatesActionDelegate.java
+END
+InstaSearchActionDelegate.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/rosvn/instasearch/!svn/ver/64/it.unibz.instasearch/src/it/unibz/instasearch/actions/InstaSearchActionDelegate.java
+END
+ShowExceptionAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/rosvn/instasearch/!svn/ver/49/it.unibz.instasearch/src/it/unibz/instasearch/actions/ShowExceptionAction.java
+END
+VisitHomePageActionDelegate.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/rosvn/instasearch/!svn/ver/32/it.unibz.instasearch/src/it/unibz/instasearch/actions/VisitHomePageActionDelegate.java
+END
