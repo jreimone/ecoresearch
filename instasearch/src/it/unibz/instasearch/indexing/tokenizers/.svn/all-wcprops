@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/rosvn/instasearch/!svn/ver/103/it.unibz.instasearch/src/it/unibz/instasearch/indexing/tokenizers
+END
+WordSplitTokenizer.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/rosvn/instasearch/!svn/ver/100/it.unibz.instasearch/src/it/unibz/instasearch/indexing/tokenizers/WordSplitTokenizer.java
+END
+CamelCaseTokenizer.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/rosvn/instasearch/!svn/ver/65/it.unibz.instasearch/src/it/unibz/instasearch/indexing/tokenizers/CamelCaseTokenizer.java
+END
+DotSplitTokenizer.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/rosvn/instasearch/!svn/ver/100/it.unibz.instasearch/src/it/unibz/instasearch/indexing/tokenizers/DotSplitTokenizer.java
+END
+TermSplitTokenizer.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/rosvn/instasearch/!svn/ver/103/it.unibz.instasearch/src/it/unibz/instasearch/indexing/tokenizers/TermSplitTokenizer.java
+END

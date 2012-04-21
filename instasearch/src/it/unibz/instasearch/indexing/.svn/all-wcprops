@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/rosvn/instasearch/!svn/ver/103/it.unibz.instasearch/src/it/unibz/instasearch/indexing
+END
+WorkspaceIndexerJDT.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/rosvn/instasearch/!svn/ver/97/it.unibz.instasearch/src/it/unibz/instasearch/indexing/WorkspaceIndexerJDT.java
+END
+Field.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/rosvn/instasearch/!svn/ver/93/it.unibz.instasearch/src/it/unibz/instasearch/indexing/Field.java
+END
+StorageIndexer.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/rosvn/instasearch/!svn/ver/103/it.unibz.instasearch/src/it/unibz/instasearch/indexing/StorageIndexer.java
+END
+LengthNormSimilarity.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/rosvn/instasearch/!svn/ver/76/it.unibz.instasearch/src/it/unibz/instasearch/indexing/LengthNormSimilarity.java
+END
+SearchResult.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/rosvn/instasearch/!svn/ver/59/it.unibz.instasearch/src/it/unibz/instasearch/indexing/SearchResult.java
+END
+FileAnalyzer.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/rosvn/instasearch/!svn/ver/103/it.unibz.instasearch/src/it/unibz/instasearch/indexing/FileAnalyzer.java
+END
+SearchResultDoc.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/rosvn/instasearch/!svn/ver/103/it.unibz.instasearch/src/it/unibz/instasearch/indexing/SearchResultDoc.java
+END
+QueryAnalyzer.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/rosvn/instasearch/!svn/ver/100/it.unibz.instasearch/src/it/unibz/instasearch/indexing/QueryAnalyzer.java
+END
+SearchQuery.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/rosvn/instasearch/!svn/ver/100/it.unibz.instasearch/src/it/unibz/instasearch/indexing/SearchQuery.java
+END
+Searcher.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/rosvn/instasearch/!svn/ver/103/it.unibz.instasearch/src/it/unibz/instasearch/indexing/Searcher.java
+END
+WorkspaceIndexer.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/rosvn/instasearch/!svn/ver/103/it.unibz.instasearch/src/it/unibz/instasearch/indexing/WorkspaceIndexer.java
+END
+ResourceCollector.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/rosvn/instasearch/!svn/ver/83/it.unibz.instasearch/src/it/unibz/instasearch/indexing/ResourceCollector.java
+END

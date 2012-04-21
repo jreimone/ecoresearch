@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/rosvn/instasearch/!svn/ver/103/it.unibz.instasearch/src/it/unibz/instasearch/ui
+END
+InstaSearchView.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/rosvn/instasearch/!svn/ver/103/it.unibz.instasearch/src/it/unibz/instasearch/ui/InstaSearchView.java
+END
+MatchHighlightJob.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/rosvn/instasearch/!svn/ver/100/it.unibz.instasearch/src/it/unibz/instasearch/ui/MatchHighlightJob.java
+END
+SearchJob.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/rosvn/instasearch/!svn/ver/84/it.unibz.instasearch/src/it/unibz/instasearch/ui/SearchJob.java
+END
+InstaSearchPage.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/rosvn/instasearch/!svn/ver/100/it.unibz.instasearch/src/it/unibz/instasearch/ui/InstaSearchPage.java
+END
+SearchViewControl.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/rosvn/instasearch/!svn/ver/103/it.unibz.instasearch/src/it/unibz/instasearch/ui/SearchViewControl.java
+END
+InstaSearchUI.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/rosvn/instasearch/!svn/ver/90/it.unibz.instasearch/src/it/unibz/instasearch/ui/InstaSearchUI.java
+END
+ResultContentProvider.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/rosvn/instasearch/!svn/ver/100/it.unibz.instasearch/src/it/unibz/instasearch/ui/ResultContentProvider.java
+END
+ReportErrorDialog.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/rosvn/instasearch/!svn/ver/54/it.unibz.instasearch/src/it/unibz/instasearch/ui/ReportErrorDialog.java
+END
+StyledTextContentAdapter.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/rosvn/instasearch/!svn/ver/66/it.unibz.instasearch/src/it/unibz/instasearch/ui/StyledTextContentAdapter.java
+END
+ResultLabelProvider.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/rosvn/instasearch/!svn/ver/100/it.unibz.instasearch/src/it/unibz/instasearch/ui/ResultLabelProvider.java
+END
+SearchContentProposalProvider.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/rosvn/instasearch/!svn/ver/103/it.unibz.instasearch/src/it/unibz/instasearch/ui/SearchContentProposalProvider.java
+END
+DropdownMenuProvider.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/rosvn/instasearch/!svn/ver/87/it.unibz.instasearch/src/it/unibz/instasearch/ui/DropdownMenuProvider.java
+END
