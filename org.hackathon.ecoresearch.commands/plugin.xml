@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            categoryId="org.hackathon.ecoresearch.category"
+            id="org.hackathon.ecoresearch.searchdialog"
+            name="Ecore Search Dialog">
+      </command>
+      <category
+            id="org.hackathon.ecoresearch.category"
+            name="Ecore Search">
+      </category>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="org.hackathon.ecoresearch.handlers.SearchDialogHandler"
+            commandId="org.hackathon.ecoresearch.searchdialog">
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.bindings">
+      <key
+            contextId="org.eclipse.emf.ecoretools.diagram.ui.diagramContext"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            sequence="M1+F">
+      </key>
+   </extension>
+
+</plugin>
