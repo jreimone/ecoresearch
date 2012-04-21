@@ -16,12 +16,15 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.presentation.EcoreEditor;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecoretools.diagram.part.EcoreDiagramEditor;
+import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.StructuredSelection;
+import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.PartInitException;
@@ -61,9 +64,13 @@ public class OpenEditorHandler extends AbstractHandler {
 						// Ecore Tree Editor
 						EcoreEditor treeEditor = (EcoreEditor) openEditor;
 						List<EObject> selectedElement = new ArrayList<EObject>();
+						EditingDomain editingDomain = treeEditor.getEditingDomain();
+						ResourceSet resourceSet = editingDomain.getResourceSet();
+						URI resolveUri = EcoreUtil.getURI(element);
+						element = resourceSet.getEObject(resolveUri, true);
 						selectedElement.add(element);
 						IStructuredSelection selection = new StructuredSelection(selectedElement);
-						treeEditor.setSelection(selection);
+						treeEditor.getViewer().setSelection(selection);
 					}
 				} catch (PartInitException e) {
 					e.printStackTrace();
