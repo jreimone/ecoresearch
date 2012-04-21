@@ -26,6 +26,10 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Iterator;
 
+import org.eclipse.core.commands.Command;
+import org.eclipse.core.commands.IParameter;
+import org.eclipse.core.commands.Parameterization;
+import org.eclipse.core.commands.ParameterizedCommand;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.runtime.ILogListener;
 import org.eclipse.core.runtime.IPath;
@@ -79,7 +83,11 @@ import org.eclipse.swt.widgets.Menu;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IViewSite;
 import org.eclipse.ui.PartInitException;
+import org.eclipse.ui.PlatformUI;
+import org.eclipse.ui.commands.ICommandService;
+import org.eclipse.ui.handlers.IHandlerService;
 import org.eclipse.ui.part.ViewPart;
+import org.hackathon.ecoresearch.commands.IOpenEditorCommand;
 
 /**
  * 
@@ -462,7 +470,24 @@ public class InstaSearchView extends ViewPart implements ModifyListener, ILogLis
 		if(obj instanceof SearchResultDoc) {
 			doc = (SearchResultDoc) obj;
 			
-			searchInModel(doc.getFile());
+			
+			
+			EObject view = searchInModel(doc.getFile());
+			Resource resource = view.eResource();
+			//					EObject element = view.getElement();
+			ICommandService commandService = (ICommandService) PlatformUI.getWorkbench().getActiveWorkbenchWindow().getService(ICommandService.class);
+			IHandlerService handlerService = (IHandlerService) PlatformUI.getWorkbench().getActiveWorkbenchWindow().getService(IHandlerService.class);
+			Command command = commandService.getCommand(IOpenEditorCommand.COMMAND_ID);
+			IParameter resourceParameter = command.getParameter(IOpenEditorCommand.PARAM_RESOURCE);
+			IParameter elementParameter = command.getParameter(IOpenEditorCommand.PARAM_ELEMENT);
+			URI uri = resource.getURI();
+			Parameterization resourceParam = new Parameterization(resourceParameter, uri.toPlatformString(true));
+			URI elementUri = EcoreUtil.getURI(view);
+			Parameterization elementParam = new Parameterization(elementParameter, elementUri.toString());
+			ParameterizedCommand parameterCommand = new ParameterizedCommand(command, new Parameterization[]{resourceParam, elementParam});
+			handlerService.executeCommand(parameterCommand, null);
+			
+			
 		} else if(obj instanceof MatchLine) {
 			selectedLineMatches = (MatchLine) obj;
 			doc = selectedLineMatches.getResultDoc();
@@ -476,13 +501,13 @@ public class InstaSearchView extends ViewPart implements ModifyListener, ILogLis
 			return;
 		
 		
-		new MatchHighlightJob(doc, selectedLineMatches, contentProvider, searchJob, getSite().getPage()).schedule();
+		//new MatchHighlightJob(doc, selectedLineMatches, contentProvider, searchJob, getSite().getPage()).schedule();
 	}
 
 	/**
 	 * 
 	 */
-	private URI searchInModel(IFile file) {
+	private EObject searchInModel(IFile file) {
 		IPath path = file.getFullPath();
 		String absolutePath = path.toFile().getAbsolutePath();
 		URI uri = URI.createPlatformResourceURI(absolutePath, true);
@@ -496,7 +521,7 @@ public class InstaSearchView extends ViewPart implements ModifyListener, ILogLis
 				ENamedElement namedElement = (ENamedElement) elementObject;
 				
 				if (namedElement.getName().toLowerCase().startsWith(searchText.getText().toLowerCase())) {
-					return EcoreUtil.getURI(namedElement);
+					return namedElement;
 				}
 			}
 		}
