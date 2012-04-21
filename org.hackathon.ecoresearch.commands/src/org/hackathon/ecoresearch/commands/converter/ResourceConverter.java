@@ -16,8 +16,9 @@ public class ResourceConverter extends AbstractParameterValueConverter {
 	@Override
 	public Object convertToObject(String parameterValue) throws ParameterValueConversionException {
 		URI uri = URI.createPlatformResourceURI(parameterValue, true);
+		URI uri2 = URI.createURI(parameterValue);
 		ResourceSet rs = new ResourceSetImpl();
-		return rs.getResource(uri, true);
+		return rs.getResource(uri2, true);
 	}
 
 	@Override
