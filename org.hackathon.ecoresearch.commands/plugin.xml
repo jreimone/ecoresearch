@@ -6,7 +6,12 @@
       <command
             categoryId="org.hackathon.ecoresearch.category"
             id="org.hackathon.ecoresearch.searchdialog"
-            name="Ecore Search Dialog">
+            name="Open editor">
+         <commandParameter
+               id="org.hackathon.ecoresearch.commands.resourceParameter"
+               name="resource"
+               optional="false">
+         </commandParameter>
       </command>
       <category
             id="org.hackathon.ecoresearch.category"
@@ -16,10 +21,11 @@
    <extension
          point="org.eclipse.ui.handlers">
       <handler
-            class="org.hackathon.ecoresearch.handlers.SearchDialogHandler"
+            class="org.hackathon.ecoresearch.handlers.OpenEditorHandler"
             commandId="org.hackathon.ecoresearch.searchdialog">
       </handler>
    </extension>
+   <!--
    <extension
          point="org.eclipse.ui.bindings">
       <key
@@ -29,5 +35,5 @@
             sequence="M1+F">
       </key>
    </extension>
-
+-->
 </plugin>

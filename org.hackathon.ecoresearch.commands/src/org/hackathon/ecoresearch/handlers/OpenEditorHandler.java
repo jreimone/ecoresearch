@@ -15,7 +15,7 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.handlers.HandlerUtil;
 
-public class SearchDialogHandler extends AbstractHandler {
+public class OpenEditorHandler extends AbstractHandler {
 
 	private Map<EObject, View> localindex = new HashMap<EObject, View>();
 	
@@ -29,8 +29,16 @@ public class SearchDialogHandler extends AbstractHandler {
 			EObject element = diagram.getElement();
 			EObject model = EcoreUtil.getRootContainer(element, true);
 			createLocalIndex(diagram);
+			openDialog();
 		}
 		return null;
+	}
+
+	/**
+	 * 
+	 */
+	private void openDialog() {
+		
 	}
 
 	/**
