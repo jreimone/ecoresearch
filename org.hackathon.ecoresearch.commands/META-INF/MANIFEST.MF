@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Tree
-Bundle-SymbolicName: org.hackathon.ecoresearch.commands;singleton:=true
+Bundle-SymbolicName: org.hackathon.ecoresearch.ui;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: org.hackathon.ecoresearch.commands.Activator
 Require-Bundle: org.eclipse.ui,
@@ -16,4 +16,5 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.emf.ecore.editor
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Export-Package: org.hackathon.ecoresearch.commands
+Export-Package: org.hackathon.ecoresearch.commands,
+ org.hackathon.ecoresearch.ui
